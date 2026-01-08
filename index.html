@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS Cheat Sheet</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding-top: 70px;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.dark-mode {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0 20px;
+            transition: background 0.3s ease;
+        }
+
+        body.dark-mode nav {
+            background: rgba(26, 26, 46, 0.95);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+            gap: 10px;
+        }
+
+        nav li a {
+            text-decoration: none;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        body.dark-mode nav li a {
+            color: #8b9eff;
+        }
+
+        nav li a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        body.dark-mode nav li a:hover {
+            background: #8b9eff;
+            color: #1a1a2e;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* Section Styling */
+        section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-mode section {
+            background: #1e1e30;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        body.dark-mode h1 {
+            color: #8b9eff;
+        }
+
+        h2 {
+            color: #764ba2;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #667eea;
+            padding-left: 15px;
+        }
+
+        body.dark-mode h2 {
+            color: #a78bfa;
+            border-left-color: #8b9eff;
+        }
+
+        h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin: 25px 0 15px;
+        }
+
+        body.dark-mode h3 {
+            color: #8b9eff;
+        }
+
+        /* Code Styling */
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 5px;
+            color: #e83e8c;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95em;
+        }
+
+        body.dark-mode code {
+            background: #2d2d44;
+            color: #ff79c6;
+        }
+
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        body.dark-mode pre {
+            background: #1a1a2e;
+            border: 1px solid #2d2d44;
+        }
+
+        pre code {
+            background: transparent;
+            color: #f8f8f2;
+            padding: 0;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        body.dark-mode td {
+            border-bottom-color: #2d2d44;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        body.dark-mode tr:nth-child(even) {
+            background: #252538;
+        }
+
+        tr:hover {
+            background: #f0f0ff;
+            transition: background 0.3s ease;
+        }
+
+        body.dark-mode tr:hover {
+            background: #2d2d44;
+        }
+
+        /* List Styling */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* Button & Interactive Elements */
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        body.dark-mode .example-box {
+            background: #252538;
+            border-left-color: #8b9eff;
+        }
+
+        .color-demo {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+        }
+
+        /* Back to Top Button */
+        #backToTop {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            display: none;
+            font-size: 24px;
+        }
+
+        #backToTop:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        /* Theme Toggle Button */
+        #themeToggle {
+            position: fixed;
+            bottom: 90px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #themeToggle:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+
+        body.dark-mode #themeToggle {
+            background: #8b9eff;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            section {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            nav ul {
+                padding: 10px 0;
+            }
+
+            nav li a {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#temel">Temel</a></li>
+            <li><a href="#metin">Metin</a></li>
+            <li><a href="#link">Link</a></li>
+            <li><a href="#liste">Liste</a></li>
+            <li><a href="#tablo">Tablo</a></li>
+            <li><a href="#resim">Resim</a></li>
+            <li><a href="#renk">Renkler</a></li>
+            <li><a href="#css">CSS</a></li>
+            <li><a href="#layout">Layout</a></li>
+            <li><a href="#semantik">Semantik</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Temel HTML -->
+        <section id="temel">
+            <h1>🚀 HTML & CSS Cheat Sheet</h1>
+            
+            <h2>Temel HTML Etiketleri</h2>
+            
+            <table>
+                <tr>
+                    <th>Etiket</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+                    <td>Başlıklar (1 en büyük, 6 en küçük)</td>
+                    <td><code>&lt;h1&gt;Ana Başlık&lt;/h1&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;p&gt;</code></td>
+                    <td>Paragraf</td>
+                    <td><code>&lt;p&gt;Metin içeriği&lt;/p&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;hr&gt;</code></td>
+                    <td>Yatay çizgi</td>
+                    <td><code>&lt;hr&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;br&gt;</code></td>
+                    <td>Satır atlama</td>
+                    <td><code>İlk satır&lt;br&gt;İkinci satır</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;button&gt;</code></td>
+                    <td>Buton</td>
+                    <td><code>&lt;button&gt;Tıkla&lt;/button&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;!-- --&gt;</code></td>
+                    <td>Yorum satırı (Ctrl+Ö)</td>
+                    <td><code>&lt;!-- Bu bir yorum --&gt;</code></td>
+                </tr>
+            </table>
+
+            <h3>Hızlı Kullanım İpuçları</h3>
+            <div class="example-box">
+                <p><strong>Emmet Kısayolları:</strong></p>
+                <p><code>p*3</code> → 3 tane p etiketi oluşturur</p>
+                <p><code>div>ul>li*5</code> → İç içe yapı oluşturur</p>
+            </div>
+        </section>
+
+        <!-- Metin Biçimlendirme -->
+        <section id="metin">
+            <h2>Metin Biçimlendirme</h2>
+            
+            <table>
+                <tr>
+                    <th>Etiket</th>
+                    <th>Görünüm</th>
+                    <th>Kullanım</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;b&gt;</code></td>
+                    <td><b>Kalın</b></td>
+                    <td><code>&lt;b&gt;Kalın metin&lt;/b&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;strong&gt;</code></td>
+                    <td><strong>Önemli</strong></td>
+                    <td><code>&lt;strong&gt;Önemli&lt;/strong&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;i&gt;</code></td>
+                    <td><i>İtalik</i></td>
+                    <td><code>&lt;i&gt;İtalik metin&lt;/i&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;em&gt;</code></td>
+                    <td><em>Vurgulu</em></td>
+                    <td><code>&lt;em&gt;Vurgulu&lt;/em&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;mark&gt;</code></td>
+                    <td><mark>İşaretli</mark></td>
+                    <td><code>&lt;mark&gt;İşaretli&lt;/mark&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;small&gt;</code></td>
+                    <td><small>Küçük</small></td>
+                    <td><code>&lt;small&gt;Küçük metin&lt;/small&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;del&gt;</code></td>
+                    <td><del>Silinmiş</del></td>
+                    <td><code>&lt;del&gt;Silinmiş&lt;/del&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;ins&gt;</code></td>
+                    <td><ins>Eklenmiş</ins></td>
+                    <td><code>&lt;ins&gt;Eklenmiş&lt;/ins&gt;</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;sub&gt;</code></td>
+                    <td>H<sub>2</sub>O</td>
+                    <td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+                </tr>
+                <tr>
+                    <td><code>&lt;sup&gt;</code></td>
+                    <td>X<sup>2</sup></td>
+                    <td><code>X&lt;sup&gt;2&lt;/sup&gt;</code></td>
+                </tr>
+            </table>
+
+            <h3>Alıntılar ve Referanslar</h3>
+            <table>
+                <tr>
+                    <th>Etiket</th>
+                    <th>Kullanım</th>
+                    <th>Görünüm</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;q&gt;</code></td>
+                    <td>Kısa, satır içi alıntı</td>
+                    <td>"Tırnak içinde"</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;blockquote&gt;</code></td>
+                    <td>Uzun blok alıntı</td>
+                    <td>Girintili paragraf</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;cite&gt;</code></td>
+                    <td>Kaynak/eser adı</td>
+                    <td>İtalik</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;abbr&gt;</code></td>
+                    <td>Kısaltma açıklaması</td>
+                    <td>Hover'da görünür</td>
+                </tr>
+            </table>
+
+            <div class="example-box">
+                <p><strong>Örnek Kullanım:</strong></p>
+                <pre><code>&lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Linkler -->
+        <section id="link">
+            <h2>Link Verme</h2>
+            
+            <h3>Temel Link Yapısı</h3>
+            <pre><code>&lt;a href="hedef.html"&gt;Link Metni&lt;/a&gt;</code></pre>
+
+            <h3>Link Hedef Türleri</h3>
+            <table>
+                <tr>
+                    <th>Target Değeri</th>
+                    <th>Açıklama</th>
+                </tr>
+                <tr>
+                    <td><code>_self</code></td>
+                    <td>Aynı sekmede açar (varsayılan)</td>
+                </tr>
+                <tr>
+                    <td><code>_blank</code></td>
+                    <td>Yeni sekmede açar 🆕</td>
+                </tr>
+                <tr>
+                    <td><code>_parent</code></td>
+                    <td>Üst çerçevede açar</td>
+                </tr>
+                <tr>
+                    <td><code>_top</code></td>
+                    <td>En üst pencereye çıkarır</td>
+                </tr>
+            </table>
+
+            <h3>URL Türleri</h3>
+            <div class="example-box">
+                <p><strong>Göreceli URL (Relative):</strong></p>
+                <pre><code>&lt;a href="css.html"&gt;CSS Sayfası&lt;/a&gt;</code></pre>
+                
+                <p><strong>Mutlak URL (Absolute):</strong></p>
+                <pre><code>&lt;a href="https://www.w3schools.com"&gt;W3Schools&lt;/a&gt;</code></pre>
+            </div>
+
+            <h3>Dosya Yolu Örnekleri</h3>
+            <table>
+                <tr>
+                    <th>Yol</th>
+                    <th>Açıklama</th>
+                </tr>
+                <tr>
+                    <td><code>dosya.html</code></td>
+                    <td>Aynı klasördeki dosya</td>
+                </tr>
+                <tr>
+                    <td><code>klasor/dosya.html</code></td>
+                    <td>Alt klasördeki dosya</td>
+                </tr>
+                <tr>
+                    <td><code>../dosya.html</code></td>
+                    <td>Üst klasördeki dosya</td>
+                </tr>
+                <tr>
+                    <td><code>../../dosya.html</code></td>
+                    <td>İki klasör yukarı çıkar</td>
+                </tr>
+            </table>
+
+            <h3>Sayfa İçi Bağlantılar</h3>
+            <pre><code>&lt;!-- Hedef --&gt;
+&lt;h2 id="bolum1"&gt;Bölüm 1&lt;/h2&gt;
+
+&lt;!-- Bağlantı --&gt;
+&lt;a href="#bolum1"&gt;Bölüm 1'e Git&lt;/a&gt;</code></pre>
+        </section>
+
+        <!-- Listeler -->
+        <section id="liste">
+            <h2>Listeler</h2>
+            
+            <h3>Sırasız Liste (Unordered List)</h3>
+            <pre><code>&lt;ul&gt;
+  &lt;li&gt;Öğe 1&lt;/li&gt;
+  &lt;li&gt;Öğe 2&lt;/li&gt;
+  &lt;li&gt;Öğe 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+            <h3>Sıralı Liste (Ordered List)</h3>
+            <pre><code>&lt;ol&gt;
+  &lt;li&gt;Birinci&lt;/li&gt;
+  &lt;li&gt;İkinci&lt;/li&gt;
+  &lt;li&gt;Üçüncü&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+
+            <h3>Tanım Listesi (Description List)</h3>
+            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;HyperText Markup Language&lt;/dd&gt;
+  
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Cascading Style Sheets&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+
+            <div class="example-box">
+                <p><strong>İç İçe Liste Örneği:</strong></p>
+                <pre><code>&lt;ul&gt;
+  &lt;li&gt;Ana Öğe 1
+    &lt;ul&gt;
+      &lt;li&gt;Alt Öğe 1.1&lt;/li&gt;
+      &lt;li&gt;Alt Öğe 1.2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Ana Öğe 2&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Tablolar -->
+        <section id="tablo">
+            <h2>Tablolar</h2>
+            
+            <h3>Temel Tablo Yapısı</h3>
+            <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Başlık 1&lt;/th&gt;
+    &lt;th&gt;Başlık 2&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Veri 1&lt;/td&gt;
+    &lt;td&gt;Veri 2&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+
+            <h3>Tablo Etiketleri</h3>
+            <table>
+                <tr>
+                    <th>Etiket</th>
+                    <th>Açıklama</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;table&gt;</code></td>
+                    <td>Tablo başlangıcı</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;tr&gt;</code></td>
+                    <td>Tablo satırı (Table Row)</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;th&gt;</code></td>
+                    <td>Başlık hücresi (Table Header)</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;td&gt;</code></td>
+                    <td>Veri hücresi (Table Data)</td>
+                </tr>
+            </table>
+
+            <h3>Tablo Stillendirme</h3>
+            <pre><code>&lt;style&gt;
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #667eea;
+  color: white;
+}
+&lt;/style&gt;</code></pre>
+        </section>
+
+        <!-- Resimler -->
+        <section id="resim">
+            <h2>Resim Ekleme</h2>
+            
+            <h3>Temel Resim Kullanımı</h3>
+            <pre><code>&lt;img src="resim.jpg" alt="Açıklama" width="300" height="200"&gt;</code></pre>
+
+            <h3>Resim Özellikleri</h3>
+            <table>
+                <tr>
+                    <th>Özellik</th>
+                    <th>Açıklama</th>
+                    <th>Örnek</th>
+                </tr>
+                <tr>
+                    <td><code>src</code></td>
+                    <td>Resim dosya yolu</td>
+                    <td><code>src="logo.png"</code></td>
+                </tr>
+                <tr>
+                    <td><code>alt</code></td>
+                    <td>Alternatif metin</td>
+                    <td><code>alt="Logo"</code></td>
+                </tr>
+                <tr>
+                    <td><code>width</code></td>
+                    <td>Genişlik</td>
+                    <td><code>width="300"</code></td>
+                </tr>
+                <tr>
+                    <td><code>height</code></td>
+                    <td>Yükseklik</td>
+                    <td><code>height="200"</code></td>
+                </tr>
+            </table>
+
+            <h3>Resim Stillendirme</h3>
+            <pre><code>&lt;!-- Yüzen resim --&gt;
+&lt;img src="resim.jpg" style="float:left; width:150px;"&gt;
+
+&lt;!-- Arka plan resmi --&gt;
+&lt;p style="background-image: url('arka.jpg');"&gt;İçerik&lt;/p&gt;</code></pre>
+
+            <h3>CSS ile Arka Plan Resmi</h3>
+            <pre><code>body {
+  background-image: url("arka.jpg");
+  background-repeat: no-repeat;    /* Tekrar etmez */
+  background-size: cover;          /* Ekrana tam oturur */
+  background-position: center;     /* Ortalar */
+  background-attachment: fixed;    /* Sabit kalır */
+}</code></pre>
+
+            <h3>Responsive Resimler (Picture Element)</h3>
+            <pre><code>&lt;picture&gt;
+  &lt;source media="(min-width: 650px)" srcset="buyuk.jpg"&gt;
+  &lt;source media="(min-width: 465px)" srcset="orta.jpg"&gt;
+  &lt;img src="kucuk.jpg" alt="Açıklama"&gt;
+&lt;/picture&gt;</code></pre>
+        </section>
+
+        <!-- Renkler -->
+        <section id="renk">
+            <h2>Renkler</h2>
+            
+            <h3>RGB Renk Sistemi</h3>
+            <table>
+                <tr>
+                    <th>Renk</th>
+                    <th>RGB Değeri</th>
+                    <th>Örnek</th>
+                </tr>
+                <tr>
+                    <td>Siyah</td>
+                    <td><code>rgb(0, 0, 0)</code></td>
+                    <td><span class="color-demo" style="background: rgb(0, 0, 0);"></span></td>
+                </tr>
+                <tr>
+                    <td>Kırmızı</td>
+                    <td><code>rgb(255, 0, 0)</code></td>
+                    <td><span class="color-demo" style="background: rgb(255, 0, 0);"></span></td>
+                </tr>
+                <tr>
+                    <td>Yeşil</td>
+                    <td><code>rgb(0, 255, 0)</code></td>
+                    <td><span class="color-demo" style="background: rgb(0, 255, 0);"></span></td>
+                </tr>
+                <tr>
+                    <td>Mavi</td>
+                    <td><code>rgb(0, 0, 255)</code></td>
+                    <td><span class="color-demo" style="background: rgb(0, 0, 255);"></span></td>
+                </tr>
+                <tr>
+                    <td>Beyaz</td>
+                    <td><code>rgb(255, 255, 255)</code></td>
+                    <td><span class="color-demo" style="background: rgb(255, 255, 255);"></span></td>
+                </tr>
+            </table>
+
+            <h3>Renk Kullanım Şekilleri</h3>
+            <div class="example-box">
+                <pre><code>&lt;!-- Metin rengi --&gt;
+&lt;p style="color: rgb(255, 0, 0);"&gt;Kırmızı metin&lt;/p&gt;
+
+&lt;!-- Arka plan rengi --&gt;
+&lt;div style="background-color: #667eea;"&gt;İçerik&lt;/div&gt;
+
+&lt;!-- Kenarlık rengi --&gt;
+&lt;div style="border: 2px solid tomato;"&gt;Kutu&lt;/div&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- CSS -->
+        <section id="css">
+            <h2>CSS (Cascading Style Sheets)</h2>
+            
+            <h3>CSS Ekleme Yöntemleri</h3>
+            
+            <div class="example-box">
+                <p><strong>1. Satır İçi CSS (Inline):</strong></p>
+                <pre><code>&lt;h1 style="color: blue; text-align: center;"&gt;Başlık&lt;/h1&gt;</code></pre>
+            </div>
+
+            <div class="example-box">
+                <p><strong>2. Sayfa İçi CSS (Internal):</strong></p>
+                <pre><code>&lt;head&gt;
+  &lt;style&gt;
+    h1 {
+      color: blue;
+      text-align: center;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <div class="example-box">
+                <p><strong>3. Harici CSS (External):</strong></p>
+                <pre><code>&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+            </div>
+
+            <h3>Temel CSS Özellikleri</h3>
+            
+            <h4>Margin (Dış Boşluk)</h4>
+            <pre><code>margin: 20px;                    /* Tüm taraflar */
+margin: 10px 20px;               /* Dikey | Yatay */
+margin: 10px 20px 30px 40px;     /* Üst | Sağ | Alt | Sol */
+margin-top: 10px;                /* Sadece üst */
+margin: auto;                    /* Ortala */</code></pre>
+
+            <h4>Padding (İç Boşluk)</h4>
+            <pre><code>padding: 20px;                   /* Tüm taraflar */
+padding: 10px 20px;              /* Dikey | Yatay */
+padding: 10px 20px 30px 40px;    /* Üst | Sağ | Alt | Sol */
+padding-left: 15px;              /* Sadece sol */</code></pre>
+
+            <h4>Border (Kenarlık)</h4>
+            <pre><code>border: 2px solid red;           /* Kalınlık | Stil | Renk */
+border-width: 3px;               /* Kalınlık */
+border-style: dashed;            /* Stil */
+border-color: blue;              /* Renk */
+border-radius: 10px;             /* Köşe yuvarlama */
+border-top: 1px solid black;     /* Sadece üst kenarlık */</code></pre>
+
+            <h4>Border Stilleri</h4>
+            <table>
+                <tr>
+                    <th>Stil</th>
+                    <th>Görünüm</th>
+                </tr>
+                <tr>
+                    <td><code>solid</code></td>
+                    <td>Düz çizgi</td>
+                </tr>
+                <tr>
+                    <td><code>dashed</code></td>
+                    <td>Kesik çizgi</td>
+                </tr>
+                <tr>
+                    <td><code>dotted</code></td>
+                    <td>Noktalı</td>
+                </tr>
+                <tr>
+                    <td><code>double</code></td>
+                    <td>Çift çizgi</td>
+                </tr>
+                <tr>
+                    <td><code>groove</code></td>
+                    <td>Oyuklu</td>
+                </tr>
+                <tr>
+                    <td><code>ridge</code></td>
+                    <td>Kabartmalı</td>
+                </tr>
+                <tr>
+                    <td><code>inset</code></td>
+                    <td>İçeri gömülü</td>
+                </tr>
+                <tr>
+                    <td><code>outset</code></td>
+                    <td>Dışarı çıkık</td>
+                </tr>
+            </table>
+
+            <h4>Width & Height (Genişlik & Yükseklik)</h4>
+            <pre><code>width: 300px;                    /* Genişlik */
+height: 200px;                   /* Yükseklik */
+max-width: 100%;                 /* Maksimum genişlik */
+min-height: 500px;               /* Minimum yükseklik */</code></pre>
+
+            <h4>Background (Arka Plan)</h4>
+            <pre><code>background-color: red;
+background-image: url('resim.jpg');
+background-size: cover;          /* cover, contain, 100% */
+background-position: center;
+background-repeat: no-repeat;
+background-attachment: fixed;    /* scroll, fixed, local */
+
+/* Kısa yazım */
+background: red url('img.jpg') no-repeat center;</code></pre>
+
+            <h4>Font Özellikleri</h4>
+            <pre><code>font-family: Arial, sans-serif;
+font-size: 16px;                 /* 100%, 1em, 1rem */
+font-weight: bold;               /* normal, bold, 100-900 */
+font-style: italic;              /* normal, italic */
+text-align: center;              /* left, right, center, justify */
+text-decoration: underline;      /* none, underline, line-through */</code></pre>
+
+            <h3>Link Renkleri</h3>
+            <pre><code>a:link { color: #1E90FF; }       /* Ziyaret edilmemiş */
+a:visited { color: #551A8B; }    /* Ziyaret edilmiş */
+a:hover { color: #FF4500; }      /* Üzerine gelince */
+a:active { color: #DC143C; }     /* Tıklanırken */</code></pre>
+        </section>
+
+        <!-- Layout -->
+        <section id="layout">
+            <h2>Layout & Hizalama</h2>
+            
+            <h3>DIV Blokları Yan Yana Hizalama</h3>
+            <div class="example-box">
+                <p><strong>1. Float ile:</strong></p>
+                <pre><code>.kutu {
+  float: left;
+  width: 33.33%;
+}</code></pre>
+
+                <p><strong>2. Inline-Block ile:</strong></p>
+                <pre><code>.kutu {
+  display: inline-block;
+  width: 33.33%;
+}</code></pre>
+
+                <p><strong>3. Flexbox ile (Önerilen):</strong></p>
+                <pre><code>.container {
+  display: flex;
+  gap: 20px;
+}
+
+.kutu {
+  flex: 1;
+}</code></pre>
+
+                <p><strong>4. Grid ile:</strong></p>
+                <pre><code>.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}</code></pre>
+            </div>
+
+            <h3>Metin Hizalama</h3>
+            <pre><code>text-align: center;              /* Ortala */
+text-align: left;                /* Sola */
+text-align: right;               /* Sağa */
+text-align: justify;             /* İki yana yasla */</code></pre>
+        </section>
+
+        <!-- Semantik Elemanlar -->
+        <section id="semantik">
+            <h2>Semantik HTML Öğeleri</h2>
+            
+            <p>Semantik öğeler, içeriklerini açıkça tanımlayan elemanlardır. Hem kodunuzu daha anlaşılır yapar hem de SEO için faydalıdır.</p>
+
+            <h3>Layout Komutları</h3>
+            <table>
+                <tr>
+                    <th>Etiket</th>
+                    <th>Açıklama</th>
+                    <th>Hatırlatma</th>
+                </tr>
+                <tr>
+                    <td><code>&lt;header&gt;</code></td>
+                    <td>Sayfanın/bölümün üst kısmı</td>
+                    <td>Logo, menü için</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;nav&gt;</code></td>
+                    <td>Menü, gezinme linkleri</td>
+                    <td>Navigasyon</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;main&gt;</code></td>
+                    <td>Ana içerik (1 tane olur)</td>
+                    <td>Sayfanın kalbi</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;section&gt;</code></td>
+                    <td>Konuya göre içerik bölümü</td>
+                    <td>Konu seç-un</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;article&gt;</code></td>
+                    <td>Tek başına anlamlı içerik</td>
+                    <td>Blog yazısı, haber</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;aside&gt;</code></td>
+                    <td>Yan/ek içerik</td>
+                    <td>Sidebar, ilgili içerik</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;footer&gt;</code></td>
+                    <td>Alt kısım (telif, link)</td>
+                    <td>Sayfa ayağı</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;figure&gt;</code></td>
+                    <td>Görsel, tablo, medya</td>
+                    <td>Resim + açıklama</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;figcaption&gt;</code></td>
+                    <td>Görsel açıklaması</td>
+                    <td>Figure'ın başlığı</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;details&gt;</code></td>
+                    <td>Açılıp kapanan alan</td>
+                    <td>Dropdown içerik</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;summary&gt;</code></td>
+                    <td>Details başlığı</td>
+                    <td>Tıklanabilir başlık</td>
+                </tr>
+                <tr>
+                    <td><code>&lt;time&gt;</code></td>
+                    <td>Tarih/saat</td>
+                    <td>Makine okunabilir tarih</td>
+                </tr>
+            </table>
+
+            <h3>Örnek Sayfa Yapısı</h3>
+            <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Sayfa Başlığı&lt;/title&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Site Başlığı&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href="#"&gt;Ana Sayfa&lt;/a&gt;
+      &lt;a href="#"&gt;Hakkında&lt;/a&gt;
+      &lt;a href="#"&gt;İletişim&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Bölüm Başlığı&lt;/h2&gt;
+      &lt;article&gt;
+        &lt;h3&gt;Makale Başlığı&lt;/h3&gt;
+        &lt;p&gt;İçerik...&lt;/p&gt;
+        &lt;figure&gt;
+          &lt;img src="resim.jpg" alt="Açıklama"&gt;
+          &lt;figcaption&gt;Resim açıklaması&lt;/figcaption&gt;
+        &lt;/figure&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;aside&gt;
+      &lt;h3&gt;İlgili İçerik&lt;/h3&gt;
+      &lt;p&gt;Yan içerik...&lt;/p&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;&copy; 2024 Tüm hakları saklıdır.&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+            <h3>Details & Summary Örneği</h3>
+            <pre><code>&lt;details&gt;
+  &lt;summary&gt;Daha fazla bilgi için tıklayın&lt;/summary&gt;
+  &lt;p&gt;Bu içerik açılıp kapanabilir.&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+        </section>
+
+        <!-- Ekstra İpuçları -->
+        <section>
+            <h2>💡 Hızlı İpuçları & Notlar</h2>
+            
+            <div class="example-box">
+                <h3>Önemli Hatırlatmalar:</h3>
+                <ul>
+                    <li><code>&lt;pre&gt;</code> etiketi içindeki boşluklar ve satır atlamaları korunur</li>
+                    <li><code>&lt;span&gt;</code> satır içi stillendirme için kullanılır (gelişmiş mark)</li>
+                    <li><code>&lt;div&gt;</code> blok seviyesi konteyner</li>
+                    <li><code>&lt;address&gt;</code> iletişim bilgileri için semantik etiket</li>
+                    <li>Emmet kısayolu: <code>!</code> + Tab → Boş HTML şablonu oluşturur</li>
+                </ul>
+            </div>
+
+            <div class="example-box">
+                <h3>CSS Box Model Sırası:</h3>
+                <p style="text-align: center; font-size: 1.2em;">
+                    <strong>Margin → Border → Padding → Content</strong>
+                </p>
+            </div>
+
+            <div class="example-box">
+                <h3>Responsive Tasarım için Meta Tag:</h3>
+                <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></pre>
+            </div>
+
+            <div class="example-box">
+                <h3>Favicon Ekleme:</h3>
+                <pre><code>&lt;link rel="icon" type="image/png" href="favicon.png"&gt;</code></pre>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Başa Dön">↑</button>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" title="Tema Değiştir">🌙</button>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
