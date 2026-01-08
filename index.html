@@ -51,8 +51,7 @@
             justify-content: center;
             align-items: center;
             padding: 15px 0;
-            gap: 8px;
-            max-width: 100%;
+            gap: 10px;
         }
 
         nav li a {
@@ -63,8 +62,6 @@
             transition: all 0.3s ease;
             font-weight: 500;
             font-size: 14px;
-            white-space: nowrap;
-            display: inline-block;
         }
 
         body.dark-mode nav li a {
@@ -313,26 +310,280 @@
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
             section {
-                padding: 20px;
+                padding: 30px;
             }
 
             h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             h2 {
-                font-size: 1.5em;
+                font-size: 1.7em;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: 12px;
             }
 
             nav ul {
                 padding: 10px 0;
+                gap: 8px;
             }
 
             nav li a {
-                font-size: 12px;
+                font-size: 13px;
                 padding: 6px 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            section {
+                padding: 20px;
+                margin-bottom: 20px;
+                border-radius: 15px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 1.3em;
+                padding-left: 10px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+                margin: 15px 0 10px;
+            }
+
+            nav {
+                padding: 0 10px;
+            }
+
+            nav ul {
+                padding: 10px 0;
+                gap: 5px;
+                justify-content: flex-start;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            nav li a {
+                font-size: 11px;
+                padding: 5px 10px;
+                white-space: nowrap;
+            }
+
+            table {
+                font-size: 13px;
+                width: 100%;
+                display: block;
+                overflow-x: auto;
+            }
+
+            th, td {
+                padding: 10px 8px;
+                font-size: 12px;
+            }
+
+            code {
+                font-size: 0.85em;
+            }
+
+            pre {
+                padding: 15px;
+                font-size: 13px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .example-box {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            #backToTop {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 15px;
+                font-size: 20px;
+            }
+
+            #themeToggle {
+                width: 45px;
+                height: 45px;
+                bottom: 75px;
+                right: 15px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 55px;
+                font-size: 14px;
+            }
+
+            section {
+                padding: 15px;
+                margin-bottom: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.3em;
+                margin-bottom: 10px;
+                padding: 10px 10px;
+            }
+
+            h2 {
+                font-size: 1.1em;
+                padding-left: 8px;
+                margin: 12px 0 8px;
+            }
+
+            h3 {
+                font-size: 1em;
+                margin: 10px 0;
+                padding: 10px 5px;
+            }
+
+            nav {
+                padding: 0 5px;
+            }
+
+            nav ul {
+                padding: 8px 0;
+                gap: 3px;
+            }
+
+            nav li a {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            table {
+                font-size: 11px;
+                margin: 10px 0;
+            }
+
+            th, td {
+                padding: 8px 5px;
+                font-size: 11px;
+            }
+
+            code {
+                font-size: 0.8em;
+                padding: 2px 4px;
+            }
+
+            pre {
+                padding: 10px;
+                font-size: 11px;
+                margin: 10px 0;
+            }
+
+            .example-box {
+                padding: 12px;
+                margin: 10px 0;
+            }
+
+            .container {
+                padding: 0 8px;
+            }
+
+            ul, ol {
+                padding-left: 20px;
+            }
+
+            li {
+                margin: 5px 0;
+            }
+
+            #backToTop {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                right: 10px;
+                font-size: 18px;
+            }
+
+            #themeToggle {
+                width: 40px;
+                height: 40px;
+                bottom: 60px;
+                right: 10px;
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding-top: 50px;
+            }
+
+            section {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 1.1em;
+                padding: 8px;
+            }
+
+            h2 {
+                font-size: 0.95em;
+            }
+
+            h3 {
+                font-size: 0.9em;
+                padding: 8px 3px;
+            }
+
+            nav li a {
+                font-size: 9px;
+                padding: 3px 6px;
+            }
+
+            p {
+                font-size: 13px;
+            }
+
+            table {
+                font-size: 10px;
+            }
+
+            th, td {
+                padding: 6px 3px;
+            }
+
+            #backToTop {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
+            }
+
+            #themeToggle {
+                width: 35px;
+                height: 35px;
+                font-size: 16px;
             }
         }
     </style>
