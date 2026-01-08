@@ -51,7 +51,8 @@
             justify-content: center;
             align-items: center;
             padding: 15px 0;
-            gap: 10px;
+            gap: 8px;
+            max-width: 100%;
         }
 
         nav li a {
@@ -62,6 +63,8 @@
             transition: all 0.3s ease;
             font-weight: 500;
             font-size: 14px;
+            white-space: nowrap;
+            display: inline-block;
         }
 
         body.dark-mode nav li a {
@@ -84,6 +87,7 @@
             max-width: 1200px;
             margin: 20px auto;
             padding: 0 20px;
+            width: 100%;
         }
 
         /* Section Styling */
@@ -95,6 +99,7 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             animation: fadeIn 0.5s ease;
             transition: background 0.3s ease, box-shadow 0.3s ease;
+            overflow-x: hidden;
         }
 
         body.dark-mode section {
@@ -113,6 +118,7 @@
             margin-bottom: 20px;
             text-align: center;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            word-wrap: break-word;
         }
 
         body.dark-mode h1 {
@@ -125,6 +131,7 @@
             margin-bottom: 20px;
             border-left: 5px solid #667eea;
             padding-left: 15px;
+            word-wrap: break-word;
         }
 
         body.dark-mode h2 {
@@ -136,10 +143,27 @@
             color: #667eea;
             font-size: 1.5em;
             margin: 25px 0 15px;
+            word-wrap: break-word;
         }
 
         body.dark-mode h3 {
             color: #8b9eff;
+        }
+
+        h4 {
+            color: #667eea;
+            font-size: 1.2em;
+            margin: 20px 0 10px;
+            word-wrap: break-word;
+        }
+
+        body.dark-mode h4 {
+            color: #8b9eff;
+        }
+
+        p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
 
         /* Code Styling */
@@ -165,6 +189,8 @@
             overflow-x: auto;
             margin: 15px 0;
             line-height: 1.8;
+            max-width: 100%;
+            font-size: 14px;
         }
 
         body.dark-mode pre {
@@ -176,6 +202,8 @@
             background: transparent;
             color: #f8f8f2;
             padding: 0;
+            white-space: pre;
+            word-wrap: normal;
         }
 
         /* Table Styling */
@@ -186,6 +214,8 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             border-radius: 10px;
             overflow: hidden;
+            display: block;
+            overflow-x: auto;
         }
 
         th {
@@ -194,11 +224,14 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            white-space: nowrap;
         }
 
         td {
             padding: 15px;
             border-bottom: 1px solid #f0f0f0;
+            word-wrap: break-word;
+            max-width: 300px;
         }
 
         body.dark-mode td {
@@ -310,62 +343,9 @@
         }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            section {
-                padding: 30px;
-            }
-
-            h1 {
-                font-size: 2.2em;
-            }
-
-            h2 {
-                font-size: 1.7em;
-            }
-
-            table {
-                font-size: 14px;
-            }
-
-            th, td {
-                padding: 12px;
-            }
-
-            nav ul {
-                padding: 10px 0;
-                gap: 8px;
-            }
-
-            nav li a {
-                font-size: 13px;
-                padding: 6px 12px;
-            }
-        }
-
         @media (max-width: 768px) {
             body {
-                padding-top: 60px;
-            }
-
-            section {
-                padding: 20px;
-                margin-bottom: 20px;
-                border-radius: 15px;
-            }
-
-            h1 {
-                font-size: 1.6em;
-                margin-bottom: 15px;
-            }
-
-            h2 {
-                font-size: 1.3em;
-                padding-left: 10px;
-            }
-
-            h3 {
-                font-size: 1.2em;
-                margin: 15px 0 10px;
+                padding-top: 130px;
             }
 
             nav {
@@ -373,24 +353,49 @@
             }
 
             nav ul {
-                padding: 10px 0;
+                padding: 10px 5px;
                 gap: 5px;
-                justify-content: flex-start;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
             }
 
             nav li a {
                 font-size: 11px;
-                padding: 5px 10px;
-                white-space: nowrap;
+                padding: 6px 10px;
+            }
+
+            .container {
+                padding: 0 10px;
+            }
+
+            section {
+                padding: 20px 15px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+                padding-left: 10px;
+                border-left-width: 3px;
+            }
+
+            h3 {
+                font-size: 1.2em;
+                margin: 20px 0 10px;
+            }
+
+            h4 {
+                font-size: 1.1em;
+                margin: 15px 0 8px;
             }
 
             table {
                 font-size: 13px;
-                width: 100%;
-                display: block;
-                overflow-x: auto;
             }
 
             th, td {
@@ -398,15 +403,19 @@
                 font-size: 12px;
             }
 
-            code {
-                font-size: 0.85em;
+            th {
+                font-size: 11px;
             }
 
             pre {
-                padding: 15px;
-                font-size: 13px;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
+                padding: 15px 10px;
+                font-size: 12px;
+                border-radius: 8px;
+            }
+
+            code {
+                font-size: 12px;
+                padding: 2px 6px;
             }
 
             .example-box {
@@ -414,8 +423,12 @@
                 margin: 15px 0;
             }
 
-            .container {
-                padding: 0 10px;
+            ul, ol {
+                padding-left: 20px;
+            }
+
+            li {
+                font-size: 14px;
             }
 
             #backToTop {
@@ -437,51 +450,38 @@
 
         @media (max-width: 480px) {
             body {
-                padding-top: 55px;
+                padding-top: 160px;
                 font-size: 14px;
             }
 
-            section {
-                padding: 15px;
-                margin-bottom: 15px;
-                border-radius: 10px;
-            }
-
-            h1 {
-                font-size: 1.3em;
-                margin-bottom: 10px;
-                padding: 10px 10px;
-            }
-
-            h2 {
-                font-size: 1.1em;
-                padding-left: 8px;
-                margin: 12px 0 8px;
-            }
-
-            h3 {
-                font-size: 1em;
-                margin: 10px 0;
-                padding: 10px 5px;
-            }
-
-            nav {
-                padding: 0 5px;
-            }
-
             nav ul {
-                padding: 8px 0;
-                gap: 3px;
+                gap: 4px;
+                padding: 8px 5px;
             }
 
             nav li a {
                 font-size: 10px;
-                padding: 4px 8px;
+                padding: 5px 8px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.3em;
+            }
+
+            h3 {
+                font-size: 1.1em;
+            }
+
+            section {
+                padding: 15px 10px;
             }
 
             table {
                 font-size: 11px;
-                margin: 10px 0;
             }
 
             th, td {
@@ -489,101 +489,47 @@
                 font-size: 11px;
             }
 
-            code {
-                font-size: 0.8em;
-                padding: 2px 4px;
-            }
-
             pre {
-                padding: 10px;
+                padding: 12px 8px;
                 font-size: 11px;
-                margin: 10px 0;
             }
 
-            .example-box {
-                padding: 12px;
-                margin: 10px 0;
+            code {
+                font-size: 11px;
             }
 
-            .container {
-                padding: 0 8px;
-            }
-
-            ul, ol {
-                padding-left: 20px;
-            }
-
-            li {
-                margin: 5px 0;
+            #backToTop, #themeToggle {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
             }
 
             #backToTop {
-                width: 40px;
-                height: 40px;
                 bottom: 15px;
                 right: 10px;
-                font-size: 18px;
             }
 
             #themeToggle {
-                width: 40px;
-                height: 40px;
-                bottom: 60px;
+                bottom: 65px;
                 right: 10px;
-                font-size: 18px;
             }
         }
 
-        @media (max-width: 360px) {
-            body {
-                padding-top: 50px;
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .container {
+                max-width: 95%;
             }
 
             section {
-                padding: 12px;
+                padding: 30px;
             }
 
             h1 {
-                font-size: 1.1em;
-                padding: 8px;
+                font-size: 2.2em;
             }
 
             h2 {
-                font-size: 0.95em;
-            }
-
-            h3 {
-                font-size: 0.9em;
-                padding: 8px 3px;
-            }
-
-            nav li a {
-                font-size: 9px;
-                padding: 3px 6px;
-            }
-
-            p {
-                font-size: 13px;
-            }
-
-            table {
-                font-size: 10px;
-            }
-
-            th, td {
-                padding: 6px 3px;
-            }
-
-            #backToTop {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
-            }
-
-            #themeToggle {
-                width: 35px;
-                height: 35px;
-                font-size: 16px;
+                font-size: 1.8em;
             }
         }
     </style>
@@ -907,6 +853,122 @@
                     <td>Veri hücresi (Table Data)</td>
                 </tr>
             </table>
+
+            <h3>Tablo Kenarlıkları (Borders)</h3>
+            
+            <div class="example-box">
+                <p><strong>Basit Kenarlık:</strong></p>
+                <pre><code>table, th, td {
+  border: 1px solid black;
+}</code></pre>
+            </div>
+
+            <div class="example-box">
+                <p><strong>Collapsed Borders (Kenarlıkları Birleştir):</strong></p>
+                <pre><code>table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;  /* Çift kenarlığı kaldırır */
+}</code></pre>
+            </div>
+
+            <h3>Border Stilleri</h3>
+            <table>
+                <tr>
+                    <th>Stil</th>
+                    <th>Görünüm</th>
+                    <th>Kod</th>
+                </tr>
+                <tr>
+                    <td><code>solid</code></td>
+                    <td>Düz çizgi</td>
+                    <td><code>border-style: solid;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dotted</code></td>
+                    <td>Noktalı</td>
+                    <td><code>border-style: dotted;</code></td>
+                </tr>
+                <tr>
+                    <td><code>dashed</code></td>
+                    <td>Kesik çizgi</td>
+                    <td><code>border-style: dashed;</code></td>
+                </tr>
+                <tr>
+                    <td><code>double</code></td>
+                    <td>Çift çizgi</td>
+                    <td><code>border-style: double;</code></td>
+                </tr>
+                <tr>
+                    <td><code>groove</code></td>
+                    <td>Oyuklu</td>
+                    <td><code>border-style: groove;</code></td>
+                </tr>
+                <tr>
+                    <td><code>ridge</code></td>
+                    <td>Kabartmalı</td>
+                    <td><code>border-style: ridge;</code></td>
+                </tr>
+                <tr>
+                    <td><code>inset</code></td>
+                    <td>İçeri gömülü</td>
+                    <td><code>border-style: inset;</code></td>
+                </tr>
+                <tr>
+                    <td><code>outset</code></td>
+                    <td>Dışarı çıkık</td>
+                    <td><code>border-style: outset;</code></td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>Kenarlık yok</td>
+                    <td><code>border-style: none;</code></td>
+                </tr>
+                <tr>
+                    <td><code>hidden</code></td>
+                    <td>Gizli kenarlık</td>
+                    <td><code>border-style: hidden;</code></td>
+                </tr>
+            </table>
+
+            <h3>Yuvarlatılmış Kenarlıklar</h3>
+            <div class="example-box">
+                <pre><code>/* Tablo ve hücreler için */
+table, th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* Sadece hücreler için */
+th, td {
+  border: 1px solid black;
+  border-radius: 10px;
+}</code></pre>
+            </div>
+
+            <h3>Kenarlık Renkleri</h3>
+            <div class="example-box">
+                <pre><code>table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+th, td {
+  border-color: #96D4D4;  /* Kenarlık rengi */
+}</code></pre>
+            </div>
+
+            <h3>Görünmez Kenarlık Efekti</h3>
+            <div class="example-box">
+                <p><strong>Beyaz kenarlık + renkli arka plan:</strong></p>
+                <pre><code>table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+
+th, td {
+  background-color: #96D4D4;
+}</code></pre>
+            </div>
 
             <h3>Tablo Stillendirme</h3>
             <pre><code>&lt;style&gt;
